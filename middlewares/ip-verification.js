@@ -4,6 +4,7 @@ const request_ip = require('request-ip');
 async function ipValidate(req,res,next) {
         var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress 
         console.log("user's ip ",ip)
+        
         try{
             resp = await  ip_schema.findOne({ip:ip});
             if(resp!=null){

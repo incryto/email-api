@@ -8,6 +8,8 @@ router = express.Router()
 
 
 router.post('/send/text',ip_validation,(req,res)=>{
+  console.log("user body")
+    console.log(req.body)
     var mailOptions = {
         from: process.env.EMAIL,
         to: req.body.email,
