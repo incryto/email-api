@@ -9,6 +9,10 @@ app.use(bodyParser.json())
 
 email_v1 = require('./routes/v1/email')
 
+const cors = require('cors')
+app.use(cors({
+    origin: '*'
+}))
 
 app.get('/',(req,res)=>{
     res.status(200).json({

@@ -81,7 +81,18 @@ router.post('/send/otp',ip_validation,(req,res)=>{
         from: process.env.EMAIL,
         to: req.body.email,
         subject: "OTP verification code",
-        html:`<h1>OTP verification code</h1><br><h3>your verification code for incrypto is</h3><h1>${req.body.otp}</h1>`
+        html:`<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
+        <div style="margin:50px auto;width:70%;padding:20px 0">
+          <div style="border-bottom:1px solid #eee">
+            <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Incrypto</a>
+          </div>
+          <p style="font-size:1.1em">Hi,</p>
+          <p>Thank you for registering to Incrypto. Use the following OTP to complete your Sign Up procedures. OTP is valid for 5 minutes</p>
+          <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">${req.body.otp}</h2>
+          <p style="font-size:0.9em;">Regards,<br />Incrypto</p>
+          <hr style="border:none;border-top:1px solid #eee" />
+        </div>
+      </div>`
       };
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
